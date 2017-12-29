@@ -1,0 +1,36 @@
+<view class='container'>
+  <view class='result-nav'>
+  <ul>
+      <li><span class="{{debj?'nav-selected':''}}" bindtap="debj">等额本金</span></li>
+      <li><span class="{{debx?'nav-selected':''}}" bindtap="debx">等额本息</span></li>
+    </ul>
+  </view>
+  <view class='result-content'>
+    <view class="{{debj?'show':'hide'}}">
+      <canvas canvas-id="debjRing" disable-scroll="true" class="canvas"></canvas>
+      <view class='result-list'>
+        <view class='list-item'>贷款总额：<span>{{loanSum}}元</span></view>
+        <view class='list-item'>还款总额：<span>{{paySum}}元</span></view>
+        <view class='list-item'>支付利息：<span>{{interest}}元</span></view>
+        <view class='list-item'>贷款月数：<span>{{month}}月</span></view>
+        <view class='list-item' style='width:100%;'>首月还款：<span>{{firstMonthAmount}}元 <i>(每月递减{{monthDecrease}}元)</i></span></view>
+      </view>
+      <view class='cal-tips'>
+        计算结果仅供参考，如有疑问可 <a bindtap='phoneCall'>咨询置业顾问</a>
+      </view>
+    </view>
+    <view class="{{debx?'show':'hide'}}">
+     <canvas canvas-id="debxRing" disable-scroll="true" class="canvas"></canvas>
+      <view class='result-list'>
+        <view class='list-item'>贷款总额：<span>{{loanSum}}元</span></view>
+        <view class='list-item'>还款总额：<span>{{PInterest}}元</span></view>
+        <view class='list-item'>支付利息：<span>{{PInterest-loanSum}}元</span></view>
+        <view class='list-item'>贷款月数：<span>{{month}}月</span></view>
+        <view class='list-item' style='width:100%;'>每月还款：<span>{{averageMonthAmount}}元 </span></view>
+      </view>
+      <view class='cal-tips'>
+        计算结果仅供参考，如有疑问可 <a bindtap='phoneCall'>咨询置业顾问</a>
+      </view>
+    </view>
+  </view>
+</view>

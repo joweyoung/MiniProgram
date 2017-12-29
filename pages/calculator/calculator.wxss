@@ -1,0 +1,87 @@
+/*calculator css*/
+.canvas {
+    width: 100%;
+    height: 200px;
+}
+.show{
+  display:block;
+  }
+.hide{
+  display:none;
+}
+.cal-nav {
+  width:700rpx;
+  height:100rpx;
+  line-height:100rpx; 
+  font-size:14px;
+}
+.cal-nav ul {  
+  width:100%;
+  height:100rpx;
+}
+.cal-nav li {
+  width: 33%;
+  float: left;
+  height:100rpx;
+  text-align: center;
+  line-height:100rpx;
+}
+.cal-nav li span {
+  padding-bottom:25rpx;
+  height:100rpx;
+}
+.cal-nav .nav-selected{
+  border-bottom: 3px solid #333;
+}
+
+.cal-content{
+  margin-top:20rpx;
+  width:700rpx;
+  font-size:14px;
+}
+.picker-right{
+  display: inline-block;
+  float:right;
+}
+.picker-right i{
+  color:#ccc;
+}
+.row-line{
+   display: block;
+   margin-top:20rpx;
+   height:50rpx;
+}
+.row-line-hide{
+   display: none;
+}
+.line-label{
+  float: left;
+}
+.line-right{
+  float:right;
+  width:300rpx;
+}
+.line-right input{
+  float:left;
+  width:200rpx;
+  height:40rpx;
+  text-align: right;
+}
+.cal-start{
+  margin-top:60rpx;
+}
+.cal-btn{
+  width:400rpx;
+  border-radius: 60rpx;
+  background-color: #2896ff;
+  color:#fff;
+  font-weight:200;
+}
+.cal-tips{
+  margin-top:40rpx;
+  font-size:12px;
+  text-align: center;
+}
+.cal-tips a{
+  color:#2896ff;
+}

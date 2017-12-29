@@ -1,0 +1,53 @@
+/**index.wxss**/
+@font-face {
+  font-family: zanui-weapp-icon;
+  src: url(https://b.yzcdn.cn/zanui-weapp/zanui-weapp-icon-4381aded05.eot);
+  src: url(https://b.yzcdn.cn/zanui-weapp/zanui-weapp-icon-4381aded05.eot?#iefix) format('embedded-opentype'),
+         url(https://b.yzcdn.cn/zanui-weapp/zanui-weapp-icon-4381aded05.woff2) format('woff2'),
+         url(https://b.yzcdn.cn/zanui-weapp/zanui-weapp-icon-4381aded05.woff) format('woff'),
+         url(https://b.yzcdn.cn/zanui-weapp/zanui-weapp-icon-4381aded05.ttf) format('truetype');
+}
+
+.zan-icon {
+  display: inline-block;
+}
+
+.zan-icon::before {
+  font-family: zanui-weapp-icon !important;
+  font-style: normal;
+  font-weight: 400;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.zan-icon-wap-home:before {
+  content: '\e821'
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}

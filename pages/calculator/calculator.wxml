@@ -1,0 +1,157 @@
+<view class='container'>
+  <view class='cal-nav'>
+    <ul>
+      <li><span class="{{sydk?'nav-selected':''}}" bindtap="sydk">商业贷款</span></li>
+      <li><span class="{{gjjdk?'nav-selected':''}}" bindtap="gjjdk">公积金贷款</span></li>
+      <li><span class="{{zhdk?'nav-selected':''}}" bindtap="zhdk">组合贷款</span></li>
+    </ul>
+  </view>
+  <view class='cal-content'>    
+      <!--商业贷款-->
+      <view class="{{sydk?'show':'hide'}}">
+        <view>
+          <picker class='row-line' bindchange="bindPickerChange" value="{{index}}" range-key="name" range='{{array}}'>
+            <view class="picker">
+            计算方式：
+              <span class='picker-right'>{{array[index].name}} <i>〉</i></span>
+            </view>
+          </picker>
+          <view class="{{sydklx?'row-line':'row-line-hide'}}">
+            <view class='line-label'>房价总额：</view>
+            <view class='line-right'><input bindinput='houseSumChange' value='{{houseSum}}' type="number" placeholder='0'/><span>  万元</span></view>
+          </view>
+          <picker class="{{sydklx?'row-line':'row-line-hide'}}" bindchange="loanRatio" value="{{indexLoanRatio}}" range="{{arrayLoanRatio}}">
+            <view class="picker">
+            贷款比例：
+              <span class='picker-right'>{{arrayLoanRatio[indexLoanRatio]}} 成 <i>〉</i></span>
+            </view>
+          </picker>
+          <view class='row-line'>
+            <view class='line-label'>贷款总额：</view>
+            <view class='line-right'><input type="number" value='{{loanSum}}' bindinput='loanSumChange' placeholder='0'/><span> 万元</span></view>
+          </view>
+          <picker class='row-line' bindchange="loanYear" value="{{indexLoanYear}}" range="{{arrayLoanYear}}">
+            <view class="picker">
+            贷款年限：
+              <span class='picker-right'>{{arrayLoanYear[indexLoanYear]}} 年 <i>〉</i></span>
+            </view>
+          </picker>
+          <picker class='row-line' bindchange="loanRate" value="{{indexLoanRate}}" range-key="name" range="{{arrayLoanRate}}">
+            <view class="picker">
+            贷款利率：
+              <span class='picker-right'>{{arrayLoanRate[indexLoanRate].name}} <i>〉</i></span>
+            </view>
+          </picker>
+          <view class='cal-start'>
+            <button class='cal-btn' bindtap='toResult'>开始计算</button>
+          </view>
+          <view class='cal-tips'>
+            计算结果仅供参考，如有疑问可 <a bindtap='phoneCall'>咨询置业顾问</a>
+          </view>
+        </view> 
+      </view> 
+
+      <!--公积金贷款-->
+      <view class="{{gjjdk?'show':'hide'}}">
+        <view>
+          <picker class='row-line' bindchange="gjjPickerChange" value="{{indexGjj}}" range-key="name" range='{{array}}'>
+            <view class="picker">
+            计算方式：
+              <span class='picker-right'>{{array[indexGjj].name}} <i>〉</i></span>
+            </view>
+          </picker>
+          <view class="{{gjjdklx?'row-line':'row-line-hide'}}">
+            <view class='line-label'>房价总额：</view>
+            <view class='line-right'><input bindinput='houseSumChangeGjj' value='{{houseSumGjj}}' type="number" placeholder='0'/><span> 万元</span></view>
+          </view>
+          <picker class="{{gjjdklx?'row-line':'row-line-hide'}}" bindchange="loanRatioGjj" value="{{indexLoanRatioGjj}}" range="{{arrayLoanRatio}}">
+            <view class="picker">
+            贷款比例：
+              <span class='picker-right'>{{arrayLoanRatio[indexLoanRatioGjj]}}成 <i>〉</i></span>
+            </view>
+          </picker>
+          <view class='row-line'>
+            <view class='line-label'>贷款总额：</view>
+            <view class='line-right'><input type="number" value='{{loanSumGjj}}' bindinput='loanSumChangeGjj'  placeholder='0'/><span> 万元</span></view>
+          </view>
+          <picker class='row-line' bindchange="loanYearGjj" value="{{indexLoanYearGjj}}" range="{{arrayLoanYear}}">
+            <view class="picker">
+            贷款年限：
+              <span class='picker-right'>{{arrayLoanYear[indexLoanYearGjj]}}年 <i>〉</i></span>
+            </view>
+          </picker>
+          <picker class='row-line' bindchange="loanRateGjj" value="{{indexLoanRateGjj}}" range-key="name" range="{{arrayLoanRateGjj}}">
+            <view class="picker">
+            贷款利率：
+              <span class='picker-right'>{{arrayLoanRateGjj[indexLoanRateGjj].name}} <i>〉</i></span>
+            </view>
+          </picker>
+          <view class='cal-start'>
+            <button class='cal-btn' bindtap='toResultGjj'>开始计算</button>
+          </view>
+          <view class='cal-tips'>
+            计算结果仅供参考，如有疑问可 <a bindtap='phoneCall'>咨询置业顾问</a>
+          </view>
+        </view> 
+      </view> 
+
+      <!--组合贷款  -->
+      <view class="{{zhdk?'show':'hide'}}">
+        <view>
+          <picker class='row-line' bindchange="zhPickerChange" value="{{indexZh}}" range-key="name" range='{{array}}'>
+            <view class="picker">
+            计算方式：
+              <span class='picker-right'>{{array[indexZh].name}} <i>〉</i></span>
+            </view>
+          </picker>
+          <view class="{{zhdklx?'row-line':'row-line-hide'}}">
+            <view class='line-label'>房价总额：</view>
+            <view class='line-right'><input bindinput='houseSumChangeZh' value='{{houseSumZh}}' type="number" placeholder='0'/><span> 万元</span></view>
+          </view>
+          <picker class="{{zhdklx?'row-line':'row-line-hide'}}" bindchange="loanRatioZh" value="{{indexLoanRatioZh}}" range="{{arrayLoanRatio}}">
+            <view class="picker">
+            贷款比例：
+              <span class='picker-right'>{{arrayLoanRatio[indexLoanRatioZh]}}成 <i>〉</i></span>
+            </view>
+          </picker>
+          <view class='row-line'>
+            <view class='line-label'>贷款总额：</view>
+            <view class='line-right'><input type="number" value='{{loanSumZh}}' bindinput='zhLoanChange' placeholder='0'/><span> 万元</span></view>
+          </view>
+          <view class='row-line'>
+            <view class='line-label'>公积金贷款：</view>
+            <view class='line-right'><input type="number" value='{{loanSumZhGjj}}' bindinput='zhGjjLoanChange' placeholder='0'/><span> 万元</span></view>
+          </view>
+          <picker class='row-line' bindchange="loanRateZhGjj" value="{{indexLoanRateZhGjj}}" range-key="name" range="{{arrayLoanRateGjj}}">
+            <view class="picker">
+            贷款利率：
+              <span class='picker-right'>{{arrayLoanRateGjj[indexLoanRateZhGjj].name}} <i>〉</i></span>
+            </view>
+          </picker>
+          <view class='row-line'>
+            <view class='line-label'>商业贷款：</view>
+            <view class='line-right'><input type="number" value='{{loanSumZhSy}}'  placeholder='0'/><span> 万元</span></view>
+          </view>
+          <picker class='row-line' bindchange="loanRateZhSy" value="{{indexLoanRateZhSy}}" range-key="name" range="{{arrayLoanRate}}">
+            <view class="picker">
+            贷款利率：
+              <span class='picker-right'>{{arrayLoanRate[indexLoanRateZhSy].name}} <i>〉</i></span>
+            </view>
+          </picker>
+          <picker class='row-line' bindchange="loanYearZh" value="{{indexLoanYearZh}}" range="{{arrayLoanYear}}">
+            <view class="picker">
+            贷款年限：
+              <span class='picker-right'>{{arrayLoanYear[indexLoanYearZh]}}年 <i>〉</i></span>
+            </view>
+          </picker>
+          
+          <view class='cal-start'>
+            <button class='cal-btn' bindtap='toResultZh'>开始计算</button>
+          </view>
+          <view class='cal-tips'>
+            计算结果仅供参考，如有疑问可 <a bindtap='phoneCall'>咨询置业顾问</a>
+          </view>
+        </view> 
+      </view> 
+    </view> 
+</view>

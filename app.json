@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/calculator/calculator",
+    "pages/result/result"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "嘉为印象",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color":"#a9b7b7",
+    "selectedColor":"#2896ff",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath":"pages/images/home.png",
+        "selectedIconPath":"pages/images/homeblue.png"
+      },
+      {
+        "pagePath": "pages/calculator/calculator",
+        "text": "房贷计算器",
+        "iconPath": "pages/images/cal.png",
+        "selectedIconPath":"pages/images/calblue.png"
+        
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}
